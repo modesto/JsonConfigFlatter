@@ -1,0 +1,14 @@
+{
+  "sampleKey": "sampleValue",
+  "sampleObject": {
+    "sampleObjectKey": "sampleObject value",
+    "sampleObjectInsideObject": {
+      "nestedKeyInsideNestedObject":  "renested value" 
+    } 
+  },
+  "sampleArray": [
+    "arrayItem1",
+    "arrayItem2",
+    "arrayItem3"
+  ] 
+}
