@@ -18,9 +18,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-        source-url: https://api.nuget.org/v3/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.NugetApiKey}}
 
     - name: Install dependencies
       run: dotnet restore
@@ -37,5 +34,7 @@ jobs:
         dotnet pack -c Release -o out
         
     - name: Push generated package to NuGet
-      run: dotnet nuget push ./JsonConfigFlatter/out/*.nupkg -k $NUGET_AUTH_TOKEN --skip-duplicate --no-symbols true
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_AUTH_TOKEN}}
+      run: dotnet nuget push -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate --no-symbols true ./JsonConfigFlatter/out/*.nupkg 
       
