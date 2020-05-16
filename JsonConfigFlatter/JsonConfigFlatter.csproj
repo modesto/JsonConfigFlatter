@@ -5,14 +5,34 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-flattenconfig</ToolCommandName>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package information">
+    <Authors>Modesto San Juan</Authors>
+    <Company />
+    <Description>This dotnet tool allows you to convert any json file into an Azure App Configuration compatible file allowing you to import using Azure Cli (az appconfig kv import)</Description>
     <PackageId>JsonConfigFlatter</PackageId>
-    <PackageVersion>0.1.0-alpha</PackageVersion>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/modesto/JsonConfigFlatter/</PackageProjectUrl>
+    <PackageTags>Configuration;Azure App Configuration</PackageTags>
+    <PackageVersion>0.1.1</PackageVersion>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryUrl>https://github.com/modesto/JsonConfigFlatter/</RepositoryUrl>
+    <Copyright>Copyright (c) 2020 Modesto San Juan</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.3" />
     <PackageReference Include="System.Text.Json" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
