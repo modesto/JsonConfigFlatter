@@ -7,10 +7,8 @@ using Microsoft.Extensions.Configuration;
 namespace JsonConfigFlatter {
     public static class JsonConfigFlatter {
         public static void WriteFlattenedConfig(FlatterOptions flatterOptions) {
-            var inputFilePath = System.IO.Path.GetFullPath(flatterOptions.InputFile, Environment.CurrentDirectory);
-            var outputFilePath = System.IO.Path.GetFullPath(flatterOptions.OutputFile, Environment.CurrentDirectory);
             var config = new ConfigurationBuilder()
-                .AddJsonFile(inputFilePath)
+                .AddJsonFile(flatterOptions.InputFile)
                 .Build()
                 .AsEnumerable()
                 .Where(x => x.Value != null)
@@ -18,7 +16,7 @@ namespace JsonConfigFlatter {
                     kvp => kvp.Key,
                     kvp => kvp.Value);
             var flattenedConfig = JsonSerializer.Serialize(config, new JsonSerializerOptions() {WriteIndented = true});
-            File.WriteAllText(outputFilePath, flattenedConfig);
+            File.WriteAllText(flatterOptions.OutputFile, flattenedConfig);
         }
     }
 }
