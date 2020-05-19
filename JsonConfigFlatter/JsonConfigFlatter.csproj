@@ -16,7 +16,7 @@
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/modesto/JsonConfigFlatter/</PackageProjectUrl>
     <PackageTags>Configuration;Azure App Configuration</PackageTags>
-    <PackageVersion>0.1.1</PackageVersion>
+    <PackageVersion>0.1.2</PackageVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/modesto/JsonConfigFlatter/</RepositoryUrl>
     <Copyright>Copyright (c) 2020 Modesto San Juan</Copyright>
