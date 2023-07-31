@@ -36,6 +36,6 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.NUGET_AUTH_TOKEN}}
       run: |
-        dir ./
+        dir ./out
         dotnet nuget push -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate --no-symbols true ./out/*.nupkg 
       
