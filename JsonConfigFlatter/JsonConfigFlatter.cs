@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 
@@ -17,7 +18,7 @@ namespace JsonConfigFlatter {
                 .ToDictionary(
                     kvp => kvp.Key,
                     kvp => kvp.Value);
-            var flattenedConfig = JsonSerializer.Serialize(config, new JsonSerializerOptions() {WriteIndented = true});
+            var flattenedConfig = JsonSerializer.Serialize(config, new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true});
             File.WriteAllText(outputFilePath, flattenedConfig);
         }
     }

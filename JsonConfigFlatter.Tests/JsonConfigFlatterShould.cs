@@ -30,6 +30,22 @@ namespace JsonConfigFlatter.Tests
         }
 
         [Fact]
+        public void flatten_with_special_characters()
+        {
+            var options = new FlatterOptions()
+            {
+                InputFile = "Samples/ConfigWithSpecialCharacters.json",
+                OutputFile = "FlattenedConfigWithSpecialCharacters.json"
+            };
+
+            JsonConfigFlatter.WriteFlattenedConfig(options);
+
+            var jsonString = File.ReadAllText(options.OutputFile);
+            jsonString.Should().NotContain("\\u003C\\u003E");
+        }
+
+
+        [Fact]
         public void throw_file_not_found_exception_with_non_existent_input_file() {
             var options = new FlatterOptions() {
                 InputFile = "AnyNonExistentFile.json",
