@@ -49,7 +49,7 @@ namespace JsonConfigFlatter.Tests
             };
             Action act = () => JsonConfigFlatter.WriteFlattenedConfig(options);
 
-            act.Should().ThrowExactly<System.FormatException>();
+            act.Should().ThrowExactly<System.IO.InvalidDataException>();
 
         }
     }
