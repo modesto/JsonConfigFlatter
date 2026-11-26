@@ -33,6 +33,10 @@ Will be converted into this:
 }
 ```
 
+## Requirements
+
+The tool runs on the .NET 10 or .NET 11 runtime.
+
 ## Installation
 
 ```
@@ -43,4 +47,13 @@ dotnet tool install --global JsonConfigFlatter
 
 ```
 dotnet flattenconfig --input anyinputfile.json --output anyoutputfile.json
+```
+
+## Building from source
+
+Building requires the .NET 11 SDK (the exact version is pinned in `global.json`).
+
+```
+dotnet build
+dotnet test
 ```
